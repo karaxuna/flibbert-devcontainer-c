@@ -1,0 +1,20 @@
+{
+    "name": "Rigi Dev Container",
+    "build": {
+        "dockerfile": "../Dockerfile",
+        "context": ".."
+    },
+    "workspaceFolder": "/usr/src/app",
+    "customizations": {
+        "vscode": {
+            "settings": {},
+            "extensions": [
+                "ms-vscode.cpptools"
+            ]
+        }
+    },
+    "mounts": [
+        "source=${localWorkspaceFolder},target=/usr/src/app,type=bind,consistency=cached"
+    ],
+    "postStartCommand": "bash -c /usr/local/bin/sync-watch.sh",
+}
