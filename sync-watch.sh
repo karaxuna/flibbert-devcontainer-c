@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 set -e
 
+# Top level domain
+FLIBBERT_TLD="${FLIBBERT_TLD:-flibbert.com}"
+
 # Load environment variables from .env
 env_file=".env"
 if [ -f "$env_file" ]; then
@@ -30,7 +33,7 @@ while inotifywait -q -r -e modify,create,delete "$WATCH_DIR"; do
 
   if curl --fail-with-body -X POST -H "Authorization: Bearer $FLIBBERT_TOKEN" \
     -F "file=@output.wasm" \
-    "https://api.flibbert.com/devices/$FLIBBERT_DEVICE_ID/localpush"; then
+    "https://api.$FLIBBERT_TLD/devices/$FLIBBERT_DEVICE_ID/localpush"; then
     echo "✅  Wasm file pushed to the device successfully."
   else
     echo "\n"

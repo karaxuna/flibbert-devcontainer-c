@@ -12,6 +12,7 @@ git clone https://github.com/karaxuna/flibbert-devcontainer-c.git
 3. Create `.env` file with following env vars:
 
 ```
+FLIBBERT_TLD=flibbert.com
 FLIBBERT_DEVICE_ID=<your_device_id>
 FLIBBERT_TOKEN=<your_flibbert_token>
 ```
